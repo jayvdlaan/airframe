@@ -1,0 +1,31 @@
+[package]
+name = "airframe_compress"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Compression backends and helpers for Airframe data pipelines."
+
+[features]
+default = []
+zstd = ["dep:zstd"]
+lz4 = ["dep:lz4_flex"]
+gzip = ["dep:flate2"]
+brotli = ["dep:brotli"]
+full = ["zstd", "lz4", "gzip", "brotli"]
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+thiserror = "1"
+tracing = "0.1"
+# optional backends
+zstd = { version = "0.13", optional = true }
+lz4_flex = { version = "0.11", optional = true, default-features = false, features = ["frame"] }
+flate2 = { version = "1.0", optional = true }
+brotli = { version = "3.5", optional = true }
+
+[dev-dependencies]
+rand = "0.8"

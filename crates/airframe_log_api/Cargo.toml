@@ -1,0 +1,16 @@
+[package]
+name = "airframe_log_api"
+version.workspace = true
+edition = "2021"
+license = "MIT"
+description = "Lightweight logging API for Airframe: Logger trait, global setter, and no-op macros when no logger is installed"
+repository = "https://github.com/airspace-project/airspace"
+
+[lib]
+path = "src/lib.rs"
+
+[features]
+default = []
+
+[dev-dependencies]
+once_cell = "1"

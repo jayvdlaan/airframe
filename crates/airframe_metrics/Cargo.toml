@@ -1,0 +1,39 @@
+[package]
+name = "airframe_metrics"
+version.workspace = true
+edition = "2024"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Metrics primitives (Counter, Gauge, DurationMetric) with Prometheus exposition format for Airframe."
+
+[features]
+http = [
+    "dep:airframe_http",
+    "dep:axum",
+    "airframe_http/server",
+    "airframe_http/module",
+]
+adapters-axum = ["http"]
+otel = ["dep:opentelemetry", "dep:opentelemetry_sdk", "dep:opentelemetry-otlp"]
+default = []
+full = ["adapters-axum"]
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+airframe_http = { version = "1.0.0", path = "../airframe_http", optional = true }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros" }
+anyhow = "1"
+async-trait = "0.1"
+semver = "1"
+tokio = { version = "1", features = ["sync"] }
+serde = { version = "1", features = ["derive"] }
+tracing = "0.1"
+axum = { version = "0.8", optional = true }
+opentelemetry = { version = "0.28", optional = true }
+opentelemetry_sdk = { version = "0.28", features = ["rt-tokio", "metrics"], optional = true }
+opentelemetry-otlp = { version = "0.28", features = ["metrics", "grpc-tonic"], optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }

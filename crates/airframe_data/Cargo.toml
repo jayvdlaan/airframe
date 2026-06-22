@@ -1,0 +1,40 @@
+[package]
+name = "airframe_data"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Composable storage backends, caches, codecs, and key types for Airframe."
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+thiserror = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+bincode = "1"
+tempfile = "3"
+percent-encoding = "2"
+airframe_compress = { version = "1.0.0", path = "../airframe_compress", optional = true }
+airframe_codec = { version = "1.0.0", path = "../airframe_codec", optional = true }
+tracing = "0.1"
+
+[features]
+# Enable compression integration with optional dependency
+integration-compress = ["dep:airframe_compress"]
+# Enable airframe_codec integration for typed cache shim
+codec-shim = ["dep:airframe_codec"]
+# Enable Windows ACL hardening for FsBackendSecure (feature-gated to avoid extra deps by default)
+windows-acl = ["dep:windows"]
+
+[target.'cfg(windows)'.dependencies]
+# Low-level Windows API bindings used for setting restrictive DACLs when the `windows-acl` feature is enabled
+windows = { version = "0.58", features = [
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_Security_Authorization",
+    "Win32_System_Threading",
+    "Win32_Storage_FileSystem"
+], optional = true }

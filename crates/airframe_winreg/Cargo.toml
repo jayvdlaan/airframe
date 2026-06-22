@@ -1,0 +1,42 @@
+[package]
+name = "airframe_winreg"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Windows Registry integration helpers for Airframe (Windows-only)."
+
+[features]
+default = []
+# Integrations with other Airframe crates (optional)
+logging = ["dep:airframe_logging"]
+config  = ["dep:airframe_config"]
+args    = ["dep:airframe_args"]
+health  = ["dep:airframe_health"]
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+airframe_data = { version = "1.0.0", path = "../airframe_data" }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros" }
+airframe_health = { version = "1.0.0", path = "../airframe_health", optional = true }
+futures = "0.3"
+thiserror = "2.0.16"
+tracing = "0.1"
+# Optional Airframe integrations
+airframe_logging = { version = "1.0.0", path = "../airframe_logging", optional = true }
+airframe_config  = { version = "1.0.0", path = "../airframe_config", optional = true }
+airframe_args    = { version = "1.0.0", path = "../airframe_args", optional = true }
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.52"
+anyhow = "1"
+async-trait = "0.1"
+semver = "1"
+
+[dev-dependencies]
+# For async module tests (windows only) and config defaults
+tokio = { version = "1", features = ["macros", "rt", "rt-multi-thread", "time"] }
+toml = "0.8"

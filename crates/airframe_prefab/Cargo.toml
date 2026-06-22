@@ -1,0 +1,74 @@
+[package]
+name = "airframe_prefab"
+description = "Airframe prefabs: minimal, opinionated AppBuilder presets for common application shapes."
+version.workspace = true
+edition = "2021"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+airframe_logging = { version = "1.0.0", path = "../airframe_logging", optional = true }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros" }
+airframe_config = { version = "1.0.0", path = "../airframe_config", optional = true }
+airframe_health = { version = "1.0.0", path = "../airframe_health" }
+airframe_args = { version = "1.0.0", path = "../airframe_args", optional = true }
+airframe_http = { version = "1.0.0", path = "../airframe_http", features = ["module", "server"], optional = true }
+airframe_scheduler = { version = "1.0.0", path = "../airframe_scheduler" }
+airframe_crypt = { version = "1.0.0", path = "../airframe_crypt" }
+# runtime CORS layer (used by HTTP prefabs); enabled via `http` feature
+tower-http = { version = "0.6", features = ["cors"], optional = true }
+# axum types used in RouterContributor impl; only when `http` feature is on
+axum = { version = "0.8", optional = true }
+# HTTP client for Gateway proxy; enabled via `http` feature
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "http2", "stream"], optional = true }
+futures-util = { version = "0.3", optional = true }
+hyper = { version = "1", optional = true }
+hyper-util = { version = "0.1", features = ["client", "http1", "http2", "tokio"], optional = true }
+http-body-util = { version = "0.1", optional = true }
+# used for reading config defaults in HttpCorsModule
+toml = "0.8"
+# worker handler API utilities
+anyhow = "1"
+tokio = { version = "1", features = ["rt", "sync", "time"] }
+async-trait = "0.1"
+semver = "1"
+tracing = "0.1"
+tokio-util = { version = "0.7", features = ["rt"] }
+serde_json = { version = "1", optional = true }
+httpdate = "1"
+# portable time primitives for internal timing
+spacetime-core = { version = "1.0.0", path = "../../../spacetime/crates/spacetime-core", default-features = false }
+# Optional UIs for OpenAPI
+utoipa-swagger-ui = { version = "8", default-features = false, features = ["axum"], optional = true }
+utoipa = { version = "5", features = ["axum_extras"], optional = true }
+
+[features]
+default = []
+logging = ["dep:airframe_logging", "airframe_logging/module"]
+config  = ["dep:airframe_config", "airframe_config/module", "airframe_logging/config"]
+args    = ["dep:airframe_args"]
+http = ["dep:airframe_http", "dep:tower-http", "dep:axum", "dep:reqwest", "dep:futures-util", "dep:hyper", "dep:hyper-util", "dep:http-body-util", "tower-http/fs", "airframe_health/http"]
+openapi = ["http", "dep:serde_json"]
+swagger-ui = ["openapi", "dep:utoipa-swagger-ui", "dep:utoipa"]
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal", "time"] }
+anyhow = "1"
+async-trait = "0.1"
+semver = "1"
+tracing = "0.1"
+reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
+serde_json = "1"
+# Integration tests use ConfigModule directly.
+airframe_config = { version = "1.0.0", path = "../airframe_config", features = ["module"] }
+# runtime use is behind the `http` feature via optional dependency below
+rand = "0.8"
+tokio-util = { version = "0.7", features = ["rt"] }
+# Test utilities
+tempfile = "3"
+bytes = "1"
+async-stream = "0.3"
+

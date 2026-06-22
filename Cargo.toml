@@ -1,0 +1,51 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/airframe_codec",
+    "crates/airframe_compress",
+    "crates/airframe_core",
+    "crates/airframe_crypt",
+    "crates/airframe_data",
+    "crates/airframe_db",
+    "crates/airframe_event",
+    "crates/airframe_macros",
+    "crates/airframe_mysql",
+    "crates/airframe_pdata",
+    "crates/airframe_redis",
+    "crates/airframe_sdata",
+    "crates/airframe_secrets",
+    "crates/airframe_sqlite",
+    "crates/airframe_winreg",
+    "crates/airframe_args",
+    "crates/airframe_config",
+    "crates/airframe_kv",
+    "crates/airframe_scheduler",
+    "crates/airframe_logging",
+    "crates/airframe_health" ,
+    "crates/airframe_metrics",
+    "crates/airframe_api",
+    "crates/airframe_channel",
+    "crates/airframe_http", "crates/airframe_prefab",
+    "crates/airframe_log_api",
+    "crates/airframe_audit",
+    "crates/airframe_id",
+    "crates/airframe_recovery_bundle",
+    "crates/airframe_wire",
+    "crates/airframe_net",
+    "crates/airframe_ipc",
+    "crates/airframe_pg",
+    "crates/airframe_tabular",
+]
+
+[workspace.package]
+version = "1.0.0"
+license = "MIT"
+repository = "https://github.com/jayvdlaan/airframe"
+homepage = "https://github.com/jayvdlaan/airframe"
+documentation = "https://github.com/jayvdlaan/airframe#readme"
+
+[patch.crates-io]
+# During monorepo development, patch spacetime-core to the local path so the optional
+# dependency in airframe_core resolves reliably regardless of the caller's CWD.
+spacetime-core = { path = "../spacetime/crates/spacetime-core" }
+spacetime-ipc = { path = "../spacetime/crates/spacetime-ipc" }

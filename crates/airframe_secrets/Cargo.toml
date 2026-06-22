@@ -1,0 +1,58 @@
+[package]
+name = "airframe_secrets"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Secrets interfaces, resolvers, and SecretBytes facade for Airframe."
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+airframe_crypt = { version = "1.0.0", path = "../airframe_crypt" }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros" }
+airframe_data = { version = "1.0.0", path = "../airframe_data" }
+airframe_config = { version = "1.0.0", path = "../airframe_config", optional = true }
+airframe_health = { version = "1.0.0", path = "../airframe_health", optional = true }
+airframe_logging = { version = "1.0.0", path = "../airframe_logging", optional = true }
+airframe_args = { version = "1.0.0", path = "../airframe_args", optional = true }
+futures = "0.3"
+# secrecy is required because airframe_crypt public API uses secrecy types for keys
+secrecy = { version = "0.10", features = ["serde"] }
+zeroize = { version = "1", features = ["zeroize_derive"] }
+serde = { version = "1", features = ["derive"] }
+thiserror = "2.0.16"
+anyhow = "1"
+async-trait = "0.1"
+semver = "1"
+tracing = "0.1"
+
+[features]
+# Backend feature flags for SecretBytes facade
+backend-secrecy = []
+backend-secrets = ["dep:secrets"]
+
+# Back-compat aliases (to be removed in a future major release)
+secret-backend-secrecy = ["backend-secrecy"]
+secret-backend-secrets = ["backend-secrets"]
+
+# Common optional dependency features per Airframe template
+default = []
+logging = ["dep:airframe_logging"]
+config = ["dep:airframe_config"]
+args = ["dep:airframe_args"]
+# This crate also integrates with health if enabled
+health = ["dep:airframe_health"]
+
+# Optional full meta-feature for this crate
+full = ["backend-secrecy", "backend-secrets", "logging", "config", "args", "health"]
+
+[dependencies.secrets]
+version = "1.2.0"
+optional = true
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt", "rt-multi-thread"] }
+anyhow = "1"

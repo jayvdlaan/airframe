@@ -1,0 +1,37 @@
+[package]
+name = "airframe_pdata"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Protected data layer on top of airframe_data (CtE pipeline + context)."
+
+[features]
+default = []
+integration-compress = ["dep:airframe_compress"]
+# Back-compat alias
+compress = ["integration-compress"]
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+airframe_data = { version = "1.0.0", path = "../airframe_data" }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros" }
+airframe_crypt = { version = "1.0.0", path = "../airframe_crypt" }
+airframe_secrets = { version = "1.0.0", path = "../airframe_secrets" }
+thiserror = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+secrecy = "0.10"
+anyhow = "1"
+async-trait = "0.1"
+semver = "1"
+tracing = "0.1"
+
+# optional compression backend
+airframe_compress = { version = "1.0.0", path = "../airframe_compress", optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }

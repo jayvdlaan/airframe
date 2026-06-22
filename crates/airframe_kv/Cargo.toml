@@ -1,0 +1,38 @@
+[package]
+name = "airframe_kv"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "In-memory and pluggable key-value store interfaces for Airframe."
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros" }
+anyhow = "1"
+async-trait = "0.1"
+semver = "1"
+spacetime-core = { version = "1.0.0", path = "../../../spacetime/crates/spacetime-core", default-features = false }
+spacetime-std-runtime = { version = "1.0.0", path = "../../../spacetime/crates/spacetime-std-runtime" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+dashmap = "6"
+futures = "0.3"
+tokio = { version = "1", features = ["sync", "time", "macros", "rt", "fs", "io-util"] }
+tokio-stream = { version = "0.1", features = ["sync"] }
+tracing = "0.1"
+airframe_config = { version = "1.0.0", path = "../airframe_config", optional = true }
+notify = { version = "6", optional = true }
+walkdir = { version = "2", optional = true }
+crc32fast = { version = "1", optional = true }
+base64 = { version = "0.22", optional = true }
+
+[features]
+kv-fs = ["notify", "walkdir", "crc32fast", "base64"]
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt", "rt-multi-thread"] }
+tempfile = "3"

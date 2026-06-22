@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="EMPTY_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_api/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_args/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_args/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_codec/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_codec/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_codec/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_compress/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_compress/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_compress/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_config/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_config/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_core/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_core/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_core/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_crypt/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_crypt/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_crypt/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_data/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_data/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_data/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_db/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_db/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_db/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_event/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_health/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_health/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_health/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_http/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_http/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_kv/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_kv/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_logging/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_logging/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_logging/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_mysql/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_mysql/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_mysql/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_pdata/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_pdata/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_pdata/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_plugin/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_prefab/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_prefab/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_prefab/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_redis/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_redis/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_redis/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_scheduler/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_scheduler/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_sdata/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_sdata/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_sdata/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_secrets/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_secrets/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_secrets/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_sqlite/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_sqlite/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_sqlite/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_winreg/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_winreg/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/airframe_winreg/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

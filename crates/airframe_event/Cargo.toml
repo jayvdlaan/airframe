@@ -1,0 +1,20 @@
+[package]
+name = "airframe_event"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Event types and bus interfaces used across Airframe."
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+thiserror = "1"
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time"] }
+futures = "0.3"
+
+[dev-dependencies]
+serde_json = "1"

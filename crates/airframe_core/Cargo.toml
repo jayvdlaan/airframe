@@ -1,0 +1,55 @@
+[package]
+name = "airframe_core"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Core contracts and in-memory runtime for the modular Airframe architecture."
+
+[dependencies]
+thiserror = "1.0"
+async-trait = "0.1"
+serde = { version = "1", features = ["derive"] }
+semver = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tokio-util = { version = "0.7", features = ["rt"] }
+tokio-stream = { version = "0.1", features = ["sync"] }
+futures = "0.3"
+dashmap = "6"
+arc-swap = "1"
+anyhow = "1"
+tokio = { version = "1", features = ["sync", "time", "rt", "signal", "macros"] }
+serde_json = "1"
+# Optional Spacetime core for future integration; keep default-features off for no_std friendliness.
+spacetime-core = { version = "1.0.0", path = "../../../spacetime/crates/spacetime-core", default-features = false, optional = true }
+spacetime-module = { version = "1.0.0", path = "../../../spacetime/crates/spacetime-module", optional = true }
+spacetime-std-runtime = { version = "1.0.0", path = "../../../spacetime/crates/spacetime-std-runtime", optional = true }
+spacetime-health = { version = "1.0.0", path = "../../../spacetime/crates/spacetime-health", optional = true }
+spacetime-async-core = { version = "1.0.0", path = "../../../spacetime/crates/spacetime-async-core", default-features = false, optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt", "rt-multi-thread"] }
+clap = { version = "4", features = ["derive"] }
+anyhow = "1"
+tempfile = "3"
+
+[features]
+default = []
+# Only used to opt-in compiling examples that depend on sibling crates that might
+# introduce a temporary workspace dependency cycle in some setups.
+with-external-examples = []
+# Enable startup module layering validation (compile-time opt-in)
+layer-check = []
+# Opt-in feature to start wiring Airframe with Spacetime traits (and optional topo helpers)
+airframe-spacetime = ["spacetime-core", "spacetime-module", "spacetime-std-runtime", "spacetime-health"]
+# Enable async interop adapters between Spacetime and Airframe
+# Pulls in spacetime-async-core with its async-trait (and std) layer for ergonomics.
+airframe-interop = [
+    "spacetime-async-core",
+    "spacetime-async-core/async-trait",
+    "spacetime-async-core/std",
+]

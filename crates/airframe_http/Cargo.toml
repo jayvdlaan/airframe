@@ -1,0 +1,56 @@
+[package]
+name = "airframe_http"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "HTTP client/server helpers and integrations for Airframe."
+
+[features]
+default = []
+client = ["dep:reqwest", "dep:tokio"]
+server = ["dep:axum", "dep:hyper", "dep:tokio", "dep:tokio-util"]
+config = ["dep:airframe_config"]
+inline_config_parse = ["dep:toml"]
+module = ["dep:airframe_core", "dep:airframe_macros", "inline_config_parse"]
+full = ["client", "server", "config", "module"]
+
+[dependencies]
+airframe_api = { version = "1.0.0", path = "../airframe_api" }
+airframe_core = { version = "1.0.0", path = "../airframe_core", optional = true }
+airframe_config = { version = "1.0.0", path = "../airframe_config", optional = true }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros", optional = true }
+http = "1"
+bytes = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+async-trait = "0.1"
+semver = "1"
+reqwest = { version = "0.12", default-features = true, features = ["json", "stream"], optional = true }
+tokio = { version = "1", features = ["rt", "macros", "net"], optional = true }
+axum = { version = "0.8.6", optional = true }
+hyper = { version = "1", optional = true }
+tokio-util = { version = "0.7", features = ["rt"], optional = true }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tower-http = { version = "0.5", features = ["trace"] }
+toml = { version = "0.8", optional = true }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time"] }
+hyper = "1"
+axum = "0.8"
+reqwest = { version = "0.12", features = ["json"] }
+tower = "0.5"
+
+[[example]]
+name = "spec_e2e"
+required-features = ["server", "client"]
+
+[[example]]
+name = "two_contributors"
+required-features = ["server", "module"]

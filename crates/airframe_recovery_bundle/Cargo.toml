@@ -1,0 +1,27 @@
+[package]
+name = "airframe_recovery_bundle"
+version.workspace = true
+edition = "2021"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Recovery bundle format and K-of-N share-combining for the Airframe ceremony framework. Format-only — does not perform AEAD encryption (callers handle that)."
+
+[dependencies]
+airframe_id = { version = "1.0.0", path = "../airframe_id" }
+serde = { version = "1", features = ["derive"] }
+sha2 = "0.10"
+sharks = "0.5"
+subtle = "2"
+thiserror = "1.0"
+zeroize = { version = "1.7", features = ["derive"] }
+
+[dev-dependencies]
+serde_json = "1"
+uuid = { version = "1", features = ["v4"] }
+# Test-only AEAD for the K-of-N recovery acceptance test. Production
+# bundle wrapping happens in Nanokey, NOT this crate — see the
+# crate-level docs note that this crate is "format only".
+chacha20poly1305 = "0.10"
+rand = "0.8"

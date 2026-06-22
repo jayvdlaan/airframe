@@ -1,0 +1,46 @@
+[package]
+name = "airframe_redis"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Redis integration for Airframe data and caching."
+
+[features]
+# Minimal by default: do not pull heavy deps unless feature-enabled
+default = []
+# Enable the real Redis driver (pulls the `redis` crate)
+driver = ["dep:redis"]
+# Enable runtime module integration for Airframe (implies driver and required modules)
+module = [
+    "driver",
+    "dep:airframe_core",
+    "dep:airframe_config",
+    "dep:airframe_health",
+    "dep:airframe_macros",
+]
+# Enable integration tests that connect to a real Redis instance
+"test-integration" = []
+# Back-compat alias
+integration = ["test-integration"]
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core", optional = true }
+airframe_data = { version = "1.0.0", path = "../airframe_data" }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros", optional = true }
+airframe_config = { version = "1.0.0", path = "../airframe_config", optional = true }
+airframe_health = { version = "1.0.0", path = "../airframe_health", optional = true }
+anyhow = "1"
+async-trait = "0.1"
+semver = "1"
+toml = "0.8"
+thiserror = "1"
+redis = { version = "0.24", optional = true }
+futures = "0.3"
+tracing = "0.1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time"] }

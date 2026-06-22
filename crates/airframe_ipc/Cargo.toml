@@ -1,0 +1,22 @@
+[package]
+name = "airframe_ipc"
+version.workspace = true
+edition = "2021"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "IPC implementations for shared memory, Unix sockets, and child processes"
+
+[dependencies]
+spacetime-ipc = { version = "1.0.0", features = ["std"] }
+thiserror = "1.0"
+tracing = "0.1"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[features]
+default = []
+
+[dev-dependencies]

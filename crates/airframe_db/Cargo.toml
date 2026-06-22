@@ -1,0 +1,31 @@
+[package]
+name = "airframe_db"
+description = "Database traits (connection, pool, SQL execution, migrations) plus retry/timeout helpers for Airframe adapter crates."
+version.workspace = true
+edition = "2021"
+license.workspace = true
+readme = "README.md"
+
+[features]
+# Runtime integration for Airframe AppBuilder
+module = ["dep:anyhow", "dep:async-trait", "dep:semver", "dep:airframe_config", "dep:airframe_health", "dep:futures", "dep:serde"]
+
+'test-module' = ["module"]
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core", default-features = true, features = [] }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros" }
+thiserror = "1"
+spacetime-core = { version = "1.0.0", path = "../../../spacetime/crates/spacetime-core", default-features = false }
+anyhow = { version = "1", optional = true }
+async-trait = { version = "0.1", optional = true }
+semver = { version = "1", optional = true }
+airframe_config = { version = "1.0.0", path = "../airframe_config", optional = true, default-features = false, features = ["module"] }
+airframe_health = { version = "1.0.0", path = "../airframe_health", optional = true }
+futures = { version = "0.3", optional = true }
+serde = { version = "1", features = ["derive"], optional = true }
+tracing = "0.1"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt", "rt-multi-thread"] }
+airframe_health = { version = "1.0.0", path = "../airframe_health" }

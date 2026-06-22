@@ -1,0 +1,43 @@
+[package]
+name = "airframe_sqlite"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "SQLite adapter for Airframe DB abstractions."
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+airframe_db = { version = "1.0.0", path = "../airframe_db" }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros" }
+airframe_config = { version = "1.0.0", path = "../airframe_config", optional = true }
+airframe_health = { version = "1.0.0", path = "../airframe_health", optional = true }
+anyhow = "1"
+async-trait = "0.1"
+semver = "1"
+toml = "0.8"
+thiserror = "2.0.16"
+tracing = "0.1"
+futures = "0.3"
+
+[features]
+default = []
+# Enable the real SQLite driver implementation (pulls in rusqlite)
+driver = ["dep:rusqlite"]
+# Enable runtime module integration for Airframe (implies driver and required modules)
+module = [
+    "driver",
+    "dep:airframe_config",
+    "dep:airframe_health",
+]
+
+[dependencies.rusqlite]
+version = "0.31"
+features = ["bundled"]
+optional = true
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "time"] }

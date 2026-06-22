@@ -1,0 +1,19 @@
+[package]
+name = "airframe_api"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Base types and traits for public APIs within Airframe."
+
+[dependencies]
+http = "1"
+bytes = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+anyhow = "1"
+urlencoding = "2"
+tracing = "0.1"

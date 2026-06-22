@@ -1,0 +1,33 @@
+[package]
+name = "airframe_audit"
+version.workspace = true
+edition = "2021"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Tamper-evident, hash-chained audit logging for Airframe."
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros" }
+async-trait = "0.1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["sync", "time"] }
+tracing = "0.1"
+base64 = "0.22"
+thiserror = "1.0"
+semver = "1"
+anyhow = "1"
+
+# Feature-gated soft crypto backend
+airframe_crypt = { version = "1.0.0", path = "../airframe_crypt", optional = true }
+
+[features]
+default = []
+software = ["airframe_crypt"]
+
+[dev-dependencies]
+airframe_crypt = { version = "1.0.0", path = "../airframe_crypt" }
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }

@@ -1,0 +1,36 @@
+[package]
+name = "airframe_scheduler"
+version.workspace = true
+edition = "2021"
+readme = "README.md"
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+description = "Scheduler and job orchestration for Airframe apps."
+
+[dependencies]
+airframe_core = { version = "1.0.0", path = "../airframe_core" }
+airframe_kv = { version = "1.0.0", path = "../airframe_kv" }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros" }
+anyhow = "1"
+async-trait = "0.1"
+semver = "1"
+tokio = { version = "1", features = ["time", "rt", "sync", "macros"] }
+tracing = "0.1"
+dashmap = "6"
+futures = "0.3"
+tokio-util = { version = "0.7", features = ["rt"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+spacetime-core = { version = "1.0.0", path = "../../../spacetime/crates/spacetime-core", default-features = false }
+
+[features]
+default = []
+# Enables optional integration points that allow driving sleeps via a spacetime_core::Runtime.
+# Consumers can construct a runtime (e.g., airframe_core's StdRuntime under its feature)
+# and pass it to the scheduler via with_spacetime_runtime().
+airframe-spacetime = ["airframe_core/airframe-spacetime"]
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time", "test-util"] }

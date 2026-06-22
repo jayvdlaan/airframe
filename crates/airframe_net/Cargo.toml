@@ -1,0 +1,15 @@
+[package]
+name = "airframe_net"
+version.workspace = true
+edition = "2021"
+license.workspace = true
+description = "Async reliable UDP networking primitives for Airframe."
+
+[dependencies]
+tokio = { version = "1", features = ["net"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["net", "rt", "macros"] }
+
+[features]
+default = []
