@@ -9,9 +9,9 @@ homepage.workspace = true
 documentation.workspace = true
 
 [dependencies]
-airframe_crypt = { path = "../airframe_crypt" }
-airframe_core = { path = "../airframe_core", optional = true }
-airframe_macros = { path = "../airframe_macros", optional = true }
+airframe_crypt = { version = "1.0.0", path = "../airframe_crypt" }
+airframe_core = { version = "1.0.0", path = "../airframe_core", optional = true }
+airframe_macros = { version = "1.0.0", path = "../airframe_macros", optional = true }
 thiserror = "1.0"
 async-trait = { version = "0.1", optional = true }
 tokio = { version = "1", features = ["io-util", "net", "rt", "macros", "sync"], optional = true }
