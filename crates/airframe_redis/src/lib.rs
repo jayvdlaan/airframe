@@ -21,14 +21,6 @@ pub mod module;
 #[cfg(feature = "module")]
 pub use module::{RedisModule, ServiceRegistryRedisExt};
 
-/// Crate identity string.
-pub const CRATE: &str = "airframe_redis";
-
-/// Simple readiness check placeholder.
-pub fn ping() -> bool {
-    true
-}
-
 #[derive(Debug, Error)]
 pub enum AirframeRedisError {
     #[error("Redis error: {0}")]

@@ -13,8 +13,6 @@
 //! // with feature "driver":
 //! let pool = airframe_sqlite::SqlitePool::open("app.db")?;
 //! ```
-/// This crate will contain a SQLite-backed KvBackend and SQL helpers.
-pub const CRATE: &str = "airframe_sqlite";
 
 pub mod error;
 
@@ -28,7 +26,3 @@ pub use conn::{SqliteConn, SqlitePool};
 pub mod module;
 #[cfg(feature = "module")]
 pub use module::{ServiceRegistrySqliteExt, SqliteModule};
-
-pub fn ping() -> bool {
-    true
-}

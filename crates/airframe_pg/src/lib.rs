@@ -13,8 +13,6 @@
 //! // with feature "driver":
 //! let pool = airframe_pg::PgPool::connect("postgres://localhost/db").await?;
 //! ```
-/// This crate provides a PostgreSQL-backed adapter for airframe_db abstractions.
-pub const CRATE: &str = "airframe_pg";
 
 pub mod error;
 
@@ -28,7 +26,3 @@ pub use pool::{PgPool, PgPoolOptions};
 pub mod module;
 #[cfg(feature = "module")]
 pub use module::{PgModule, ServiceRegistryPgExt};
-
-pub fn ping() -> bool {
-    true
-}

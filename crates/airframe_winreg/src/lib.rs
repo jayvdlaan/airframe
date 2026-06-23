@@ -16,8 +16,6 @@
 //!
 //! let cache = WinRegByteCache::new(HiveKind::CurrentUser, r"Software\MyApp\Cache".into());
 //! ```
-/// Provides a ByteCache implementation backed by Windows Registry values.
-pub const CRATE: &str = "airframe_winreg";
 
 pub mod winreg_cache;
 pub use winreg_cache::{HiveKind, WinRegByteCache};
@@ -26,7 +24,3 @@ pub use winreg_cache::{HiveKind, WinRegByteCache};
 pub mod module;
 #[cfg(target_os = "windows")]
 pub use module::{ServiceRegistryWinRegExt, WinRegModule};
-
-pub fn ping() -> bool {
-    true
-}

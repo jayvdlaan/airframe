@@ -12,14 +12,6 @@ impl Event for Tick {
     const NAME: &'static str = "Tick";
 }
 
-/// Crate identity string.
-pub const CRATE: &str = "airframe_event";
-
-/// Simple readiness check placeholder (kept consistent across crates).
-pub fn ping() -> bool {
-    true
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -31,11 +23,5 @@ mod tests {
         let json = serde_json::to_string(&t).unwrap();
         let back: Tick = serde_json::from_str(&json).unwrap();
         assert_eq!(t, back);
-    }
-
-    #[test]
-    fn crate_const_and_ping() {
-        assert_eq!(CRATE, "airframe_event");
-        assert!(ping());
     }
 }

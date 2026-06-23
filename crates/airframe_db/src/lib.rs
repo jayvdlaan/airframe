@@ -40,11 +40,3 @@ pub use timeout::run_with_timeout;
 
 #[cfg(feature = "module")]
 pub use module::{DbConfig, DbDriverId, DbHandle, DbModule, MigrationsMode};
-
-/// Crate identity string.
-pub const CRATE: &str = "airframe_db";
-
-/// Simple readiness check placeholder.
-pub fn ping() -> bool {
-    true
-}
