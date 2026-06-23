@@ -1,6 +1,18 @@
-/// Minimal scaffold for airframe_pg.
-/// This crate provides a PostgreSQL-backed adapter for airframe_db abstractions.
-pub const CRATE: &str = "airframe_pg";
+//! PostgreSQL adapter for the `airframe_db` abstractions, backed by `sqlx`.
+//!
+//! `airframe_pg` provides an async PostgreSQL connection pool and integration
+//! with the `airframe_db` SQL-execution surface, plus an optional Airframe
+//! module providing `cap:db.pg`.
+//!
+//! # Features
+//! - `driver` — the `PgPool` / `PgPoolOptions` connection pool.
+//! - `module` — the `PgModule` that registers a pool and provides `cap:db.pg`.
+//!
+//! # Example
+//! ```ignore
+//! // with feature "driver":
+//! let pool = airframe_pg::PgPool::connect("postgres://localhost/db").await?;
+//! ```
 
 pub mod error;
 
@@ -14,7 +26,3 @@ pub use pool::{PgPool, PgPoolOptions};
 pub mod module;
 #[cfg(feature = "module")]
 pub use module::{PgModule, ServiceRegistryPgExt};
-
-pub fn ping() -> bool {
-    true
-}

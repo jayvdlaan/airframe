@@ -1,3 +1,23 @@
+//! Composable storage building blocks for Airframe.
+//!
+//! `airframe_data` provides small, predictable pieces for data storage: byte
+//! backends, typed repositories, layered caches, codecs, and validated keys.
+//! Higher layers (`airframe_pdata`, `airframe_secrets`, `airframe_sdata`) build
+//! on these.
+//!
+//! # Key pieces
+//! - [`backend`] — low-level byte backends (in-memory, filesystem, …).
+//! - [`cache`] — the `ByteCache` abstraction and layered caches.
+//! - [`repo`] — typed repositories over a backend.
+//! - [`key`] — the validated storage [`Key`](key::Key) type.
+//! - [`codec`] — serialization glue for typed storage.
+//!
+//! # Example
+//! ```ignore
+//! use airframe_data::key::Key;
+//!
+//! let key = Key::new("user:42")?; // rejects empty / "." / ".." segments
+//! ```
 pub mod backend;
 pub mod cache;
 pub mod codec;

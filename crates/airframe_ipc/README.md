@@ -19,7 +19,7 @@ This crate is a standalone library and does **not** implement the Airframe `Modu
 
 ## Dependencies
 
-- Internal: `spacetime-ipc` (`0.2.0-beta`, with the `std` feature) — provides the `SharedRegion`, `IpcChannel`, `ChildHandle` traits and the `IpcError` type.
+- Internal: `spacetime-ipc` (`1.0`, with the `std` feature) — provides the `SharedRegion`, `IpcChannel`, `ChildHandle` traits and the `IpcError` type.
 - External:
   - `libc` (`0.2`, Unix only) — `shm_open`, `ftruncate`, `mmap`/`munmap`, `shm_unlink`, and the `recv(MSG_PEEK | MSG_DONTWAIT)` socket peek.
   - `thiserror` (`1.0`)
@@ -57,9 +57,3 @@ let _len = channel.recv(&mut buf)?;
 ```
 
 `HostChildProcess::spawn(program, args)` launches the host renderer, and `ChildHandle::is_alive` / `pid` / `kill` manage its lifecycle.
-
-## Status
-
-Pre-release (`0.5.0-beta`). The public API surface above is implemented; the crate targets Unix hosts.
-
-Licensed under MIT.

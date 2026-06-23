@@ -126,10 +126,6 @@ cargo run -q -p airframe_config --example print_bind --features args -- \
 
 You can also point to a file with `--config ./app.toml` or via `AIRFRAME_CONFIG_PATH=./app.toml`.
 
-## Status
-
-Airframe module interface implemented (final step).
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

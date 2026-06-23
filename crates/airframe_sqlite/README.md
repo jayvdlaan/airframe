@@ -126,13 +126,6 @@ cargo run -p airframe_sqlite --features driver --example exec_query
 cargo run -p airframe_sqlite --features driver --example pool_wait
 ```
 
-## Status
-
-- Minimal, synchronous adapter suitable for small utilities or as a building block.
-- Not a full-featured pool: SqlitePool returns a handle that opens real connections on demand.
-- Feature-gated: the real driver compiles only with `--features driver`.
-- File paths: parent directories are created automatically; `:memory:` creates a per-connection ephemeral DB.
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

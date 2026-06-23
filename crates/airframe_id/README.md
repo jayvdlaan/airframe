@@ -39,3 +39,7 @@ The authoritative specification for these types lives in `docs/ref-ceremony-type
 ```bash
 cargo test -p airframe_id
 ```
+
+## License
+
+Licensed under the MIT License.

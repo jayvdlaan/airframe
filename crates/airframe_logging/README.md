@@ -221,3 +221,7 @@ Global options in `[logging]`:
 ## Notes
 - If a global subscriber is already set, the module falls back to a thread-local subscriber with matching reload handles.
 - Legacy keys are rejected with a descriptive error pointing to the sinks-first schema.
+
+## License
+
+Licensed under the MIT License.

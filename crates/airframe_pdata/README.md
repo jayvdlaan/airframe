@@ -74,21 +74,9 @@ airframe_pdata = { path = "../airframe_pdata" }
 // See detailed example below in this README under "Bytes-level API"
 ```
 
-## Status
-
-Airframe module interface implemented (final step).
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
-
-Protected data (pdata) is a small, opinionated layer on top of airframe_data that provides protected-at-rest key–value storage with correct transform ordering and ergonomic key handling. It integrates with airframe_secrets/airframe_crypt for AEAD encryption and optional key resolution, and with airframe_compress (feature-gated) for plaintext compression.
-
-Critical invariant (ordering):
-- Write: serialize (Codec) → optional compress → encrypt (AEAD) → persist (ByteCache/KvBackend)
-- Read: load → decrypt → optional decompress → deserialize
-
-This ensures we never “compress ciphertext,” a common pitfall when composing generic layers.
+Licensed under the MIT License.
 
 ## Crate features
 - `compress` (optional): enable plaintext compression via airframe_compress::Compressor inside the CtE pipeline. Disabled by default for lean builds.

@@ -81,10 +81,6 @@ impl Event for AppReady {
 }
 ```
 
-## Status
+## License
 
-Pre-release: `0.5.0-beta`. The public surface (re-exported `Event`/`EventBus`, the `Tick` event,
-`CRATE`, and `ping`) is implemented and exercised by the crate's tests. This crate does not expose
-an Airframe module.
-
-Licensed under MIT.
+Licensed under the MIT License.

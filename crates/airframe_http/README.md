@@ -140,10 +140,6 @@ async fn main() -> anyhow::Result<()> {
 
 If you prefer not to use modules, you can directly construct `ReqwestClient` (feature `client`) and call methods on it.
 
-## Status
-
-APIs implemented and Airframe module interfaces implemented for server (Axum) and client (reqwest) behind feature flags. Some functionality is minimal and may evolve.
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

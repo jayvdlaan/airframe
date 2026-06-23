@@ -144,10 +144,6 @@ Pass the URL to the builder: `RedisByteCacheBuilder::new(url)`.
 - `ByteCache::list()` uses SCAN with a MATCH restricted to the namespace prefix and returns logical keys without the namespace prefix.
 - This adapter opens a new connection for each operation via `client.get_connection()`. High-throughput deployments may prefer a pooled strategy in a future enhancement.
 
-## Status
-
-Airframe module interface implemented (final step).
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

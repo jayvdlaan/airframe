@@ -114,10 +114,6 @@ async fn main() -> anyhow::Result<()> {
 - Run the repeating job example: `cargo run -q -p airframe_scheduler --example repeating_job`
 - Run tests: `cargo test -q -p airframe_scheduler`
 
-## Status
-
-Airframe module interface implemented (final step).
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

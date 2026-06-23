@@ -235,10 +235,6 @@ async fn main() -> anyhow::Result<()> {
 - Render a JSON snapshot with a dummy check: `cargo run -q -p airframe_health --example dummy_json`
 - Run tests: `cargo test -q -p airframe_health`
 
-## Status
-
-Airframe module interface implemented (final step).
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

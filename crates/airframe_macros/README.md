@@ -82,9 +82,6 @@ let provides: &[&str] = caps![CAP_HTTP_SERVER, CAP_CONFIG];
 Dev-only: `semver` (used by `module_descriptor!` expansion in tests) and
 `tokio`.
 
-## Status
+## License
 
-Pre-release (`0.5.0-beta`). Used across Airframe modules; API may change before
-the stable release.
-
-Licensed under MIT.
+Licensed under the MIT License.

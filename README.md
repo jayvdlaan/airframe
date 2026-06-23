@@ -113,6 +113,32 @@ compatibility, dependencies, setup, usage).
 - [airframe_winreg](crates/airframe_winreg/README.md) - Windows registry-based ByteCache provider
 - [airframe_wire](crates/airframe_wire/README.md) - Bit-level binary protocol primitives
 
+## Development
+
+Tasks are driven by [`just`](https://github.com/casey/just):
+
+```bash
+just build          # cargo build --workspace
+just test           # cargo test --workspace
+just clippy         # cargo clippy --workspace --all-targets -- -D warnings
+just fmt            # cargo fmt --all
+just doc            # cargo doc --workspace --no-deps
+just release-check  # the full gate: fmt + clippy + test + build + every advertised
+                    # feature combination + rustdoc — run before publishing or a PR
+```
+
+This project has **no CI, by design** — a deliberate supply-chain decision (no
+third-party runners, marketplace actions, or stored tokens). `just release-check`
+*is* the gate, run locally and re-run by the maintainer before merge.
+
+### Dependencies
+
+Builds on stable Rust (edition 2021). Cryptography is provided by OpenSSL through
+`airframe_crypt`; HTTP by `axum`/`hyper`, async by `tokio`, and serialization by
+`serde`. Each crate declares its own dependencies in its `Cargo.toml`, and the
+per-crate READMEs note the major ones. `Cargo.lock` is intentionally not
+committed, as these are libraries.
+
 ## Contributing
 
 Contributions — including AI-assisted ones — are welcome. Start with

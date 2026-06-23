@@ -54,9 +54,3 @@ fn main() -> Result<(), WireError> {
     Ok(())
 }
 ```
-
-## Status
-
-Pre-release (`0.5.0-beta`). The API is functional and unit-tested but may still change before a stable release.
-
-Licensed under MIT.

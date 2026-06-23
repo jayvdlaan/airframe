@@ -1,3 +1,22 @@
+//! Schema-aware typed data helpers for Airframe, on top of `airframe_data`.
+//!
+//! `airframe_sdata` adds ergonomics around typed repositories and caches: schema
+//! definitions, model traits, validators, and typed stores — with optional
+//! protected-at-rest integration via `airframe_pdata`.
+//!
+//! # Key pieces
+//! - [`model`] — typed data-model traits.
+//! - [`schema`] — schema definitions and metadata.
+//! - [`store`] — schema-aware typed repositories.
+//! - [`cache`] — typed, schema-aware caches.
+//! - [`validators`] — field / value validation.
+//! - `protected` — protected-at-rest typed storage (feature `integration-pdata`).
+//!
+//! # Usage
+//!
+//! Use the `store` and `module` modules to build a typed repository over an
+//! `airframe_data` backend; enable `integration-pdata` for encrypted-at-rest
+//! variants. Runnable samples are in the crate's `examples/`.
 pub mod error;
 pub mod model;
 pub mod schema;

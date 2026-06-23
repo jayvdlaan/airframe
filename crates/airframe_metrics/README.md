@@ -77,24 +77,3 @@ for snap in registry.snapshot() {
     }
 }
 ```
-
-## Status
-
-Pre-release (`0.5.0-beta`). The core metric primitives, the `MetricsRegistry`,
-the snapshot API, and `MetricsModule` are implemented and tested.
-
-Not yet implemented:
-
-- **`/metrics` HTTP endpoint.** The `http` and `adapters-axum` feature flags
-  exist in `Cargo.toml` and pull in `airframe_http`/`axum`, but no code in this
-  crate mounts a router, contributes routes, or serves a `/metrics` scrape
-  endpoint. These features are reserved/planned; enabling them today adds the
-  dependencies but provides no functionality. Do not rely on a built-in HTTP
-  endpoint — render via `MetricsRegistry::render()` and serve it from your own
-  HTTP module if needed.
-
-The `otel` feature (OTLP push exporter, `OtelExporter`) is implemented but
-unverified end to end. Note that `OtelExporter` only bridges metrics registered
-*before* it is created.
-
-Licensed under MIT.

@@ -128,10 +128,6 @@ cargo run -q -p airframe_secrets --example secret_fallback
 - All APIs accept optional AAD for AEAD binding.
 - Errors are intentionally redacted to avoid leaking crypto internals.
 
-## Status
-
-APIs implemented (encrypted secrets helpers and cache). Airframe module available via SecretsModule; requires cap:crypt and registers an in-memory SecretCache by default. Optional health probe is registered when the `health` feature is enabled and HealthModule is present.
-
 ## Maintenance commands
 
 - Coverage (HTML):
@@ -141,4 +137,4 @@ APIs implemented (encrypted secrets helpers and cache). Airframe module availabl
 
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

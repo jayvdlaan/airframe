@@ -125,4 +125,4 @@ Libraries in the Airframe ecosystem can depend on this lightweight crate, while 
 
 ## License
 
-MIT
+Licensed under the MIT License.

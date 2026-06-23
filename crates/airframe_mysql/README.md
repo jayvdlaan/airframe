@@ -121,10 +121,3 @@ async fn main() -> anyhow::Result<()> {
 export AIRFRAME_MYSQL_URL="mysql://root:password@127.0.0.1:3306/airframe_test"
 cargo test -p airframe_mysql --features driver -- --ignored
 ```
-
-## Status
-
-Pre-release (`0.5.0-beta`). The adapter is synchronous and uses a logical one-connection-per-call
-pool; the `driver` and `module` features are functional but exercised primarily against local MySQL.
-
-Licensed under MIT.

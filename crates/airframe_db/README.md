@@ -140,10 +140,6 @@ Run the example that parses a URL, validates a pool config, and performs a ping 
 cargo run -q -p airframe_db --example fake_connect
 ```
 
-## Status
-
-APIs implemented (traits and helpers). Adapter crates provide concrete implementations.
-
 ## Maintenance commands
 
 - Coverage (HTML):
@@ -153,4 +149,4 @@ APIs implemented (traits and helpers). Adapter crates provide concrete implement
 
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

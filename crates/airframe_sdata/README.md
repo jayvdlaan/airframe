@@ -132,10 +132,6 @@ cargo run -p airframe_sdata --example protected_mem --features airframe_sdata/in
 # (legacy alias also works: --features airframe_sdata/protected)
 ```
 
-## Status
-
-Airframe module interface implemented (final step).
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

@@ -116,11 +116,3 @@ assert_eq!(plaintext, b"hello from initiator");
 To inspect the peer's authenticated static key or the channel-binding handshake
 hash, drive `HandshakeState` manually and call `finalize`, which returns
 `(TransportState, Option<remote_static_pubkey>, handshake_hash)`.
-
-## Status
-
-Pre-release (0.5.0-beta). The Noise_XX implementation and transports are covered
-by unit and round-trip tests (including RFC 5869 HKDF test vectors), but the API
-is not yet stabilized and may change.
-
-Licensed under MIT.

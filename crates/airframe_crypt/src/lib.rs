@@ -1,3 +1,29 @@
+//! Cryptographic primitives and suites for Airframe — the framework's
+//! cryptography boundary.
+//!
+//! `airframe_crypt` provides symmetric and asymmetric encryption, hashing,
+//! key derivation, key wrapping, one-time passwords, signatures, and a CSPRNG,
+//! built on OpenSSL. Application code is expected to go through this crate (or a
+//! higher-level service that does) rather than reaching for crypto primitives
+//! directly. The provider traits keep the backend behind a seam: public APIs
+//! exchange backend-agnostic PEM key wrappers, not concrete OpenSSL types, so an
+//! alternative backend can be slotted in.
+//!
+//! # Key pieces
+//! - [`suite::CipherSuite`] — high-level entry point aggregating the operations.
+//! - [`sym`] — symmetric encryption (AES-GCM, ChaCha20-Poly1305, …).
+//! - [`asym`] — asymmetric keygen, sign/verify, encrypt/decrypt, key agreement.
+//! - [`hash`] / [`kdf`] — digests and key derivation (PBKDF2, HKDF, Argon2).
+//! - [`otp`] / [`rand`] — TOTP utilities and cryptographically secure randomness.
+//! - [`CryptModule`] — Airframe module exposing a `CipherSuite` as `cap:crypt`.
+//!
+//! # Example
+//! ```ignore
+//! use airframe_crypt::suite::{CipherSuite, SoftwareCipherSuite};
+//!
+//! let suite = SoftwareCipherSuite::default();
+//! let digest = suite.digest(/* algorithm */, b"message")?;
+//! ```
 pub mod asym;
 pub mod envelope;
 pub mod error;
@@ -316,20 +342,5 @@ impl<'de> serde::Deserialize<'de> for AlgorithmId {
         let s = String::deserialize(deserializer)?;
         AlgorithmId::from_str(&s)
             .ok_or_else(|| serde::de::Error::custom(format!("unknown algorithm: {}", s)))
-    }
-}
-
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
     }
 }

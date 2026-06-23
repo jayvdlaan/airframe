@@ -85,3 +85,7 @@ The authoritative specification lives in `docs/arch-recovery-system.md` and `doc
 ```bash
 cargo test -p airframe_recovery_bundle
 ```
+
+## License
+
+Licensed under the MIT License.
