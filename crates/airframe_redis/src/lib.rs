@@ -1,3 +1,14 @@
+//! Redis-backed `ByteCache` adapter for Airframe's data layer.
+//!
+//! `airframe_redis` implements `airframe_data`'s `ByteCache` over Redis, with
+//! per-namespace key scoping, optional default TTL via `SETEX`, and a builder to
+//! configure the connection URL, namespace, and TTL. An optional Airframe module
+//! registers the cache (and an optional health check).
+//!
+//! # Key pieces
+//! - [`AirframeRedisError`] — the crate error type.
+//! - `RedisModule` — Airframe module (feature `module`) registering the cache.
+//! - The Redis `ByteCache` implementation is available under the `driver` feature.
 use std::time::Duration;
 
 use airframe_data::cache::ByteCache;

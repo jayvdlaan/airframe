@@ -1,3 +1,26 @@
+//! Health checks and readiness signaling for Airframe apps.
+//!
+//! `airframe_health` lets modules register required and optional health checks,
+//! exposes a readiness barrier that resolves once all required checks are
+//! healthy, and can publish an [`AppReady`] event when the app becomes ready.
+//!
+//! # Key pieces
+//! - [`HealthService`] — register checks and query aggregated health.
+//! - [`HealthStatus`] — a check's outcome (healthy / unhealthy).
+//! - [`HealthModule`] — Airframe module providing `cap:health`.
+//! - [`AppReady`] — event published when readiness is reached.
+//! - [`ServiceRegistryHealthExt`] — convenience accessor on the registry.
+//! - HTTP readiness/liveness probe routes are available under the `http` feature.
+//!
+//! # Example
+//! ```ignore
+//! use airframe_core::app::AppBuilder;
+//! use airframe_health::HealthModule;
+//!
+//! # async fn run() -> anyhow::Result<()> {
+//! let app = AppBuilder::new().with(HealthModule::new()).start().await?;
+//! # Ok(()) }
+//! ```
 use std::sync::Arc;
 use std::time::Duration;
 

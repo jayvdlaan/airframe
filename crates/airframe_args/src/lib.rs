@@ -1,3 +1,26 @@
+//! Command-line argument capture for Airframe.
+//!
+//! `airframe_args` collects `std::env::args()`, normalizes it, and registers a
+//! [`CliArgs`] value in the `ServiceRegistry`. Other modules (for example
+//! `airframe_config` with its `args` feature) require `cap:args` to guarantee
+//! ordering and read the captured CLI.
+//!
+//! # Key pieces
+//! - [`CliArgs`] — the normalized, registered CLI snapshot.
+//! - [`GlobalFlags`] — common parsed flags.
+//! - [`ArgsModule`] — Airframe module that captures argv and provides `cap:args`.
+//! - [`cli`] — small argv-parsing helpers shared across modules.
+//!
+//! # Example
+//! ```ignore
+//! use airframe_core::app::AppBuilder;
+//! use airframe_args::{ArgsModule, CliArgs};
+//!
+//! # async fn run() -> anyhow::Result<()> {
+//! let app = AppBuilder::new().with(ArgsModule::new()).start().await?;
+//! let args = app.services.get::<CliArgs>();
+//! # Ok(()) }
+//! ```
 use std::sync::Arc;
 
 use airframe_core::bus::{Event, EventBus};
