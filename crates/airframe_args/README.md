@@ -84,9 +84,3 @@ let argv: Vec<String> = vec!["--name=alice".into(), "--flag".into()];
 assert_eq!(cli::get_value(&argv, "--name").as_deref(), Some("alice"));
 assert_eq!(cli::get_bool(&argv, "--flag"), Some(true));
 ```
-
-## Status
-
-Pre-release: 0.5.0-beta.
-
-Licensed under MIT.

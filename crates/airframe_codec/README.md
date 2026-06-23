@@ -100,8 +100,6 @@ fn main() -> Result<(), airframe_codec::AirframeCodecError> {
 Additional runnable examples live under `examples/`: `cbor_roundtrip.rs`,
 `envelope_bincode.rs`, `content_id.rs`, and `der_encode.rs`.
 
-## Status
+## License
 
-Pre-release, version 0.5.0-beta. API may change before the 1.0 release.
-
-Licensed under MIT.
+Licensed under the MIT License.

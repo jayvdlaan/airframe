@@ -87,10 +87,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 fn main() { println!("Enable the 'zstd' feature to run this example"); }
 ```
 
-## Status
-
-APIs implemented (compression algorithms and streaming helpers). No Airframe module interface.
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

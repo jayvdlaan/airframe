@@ -123,10 +123,3 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 > cryptography outside the Nanokey boundary. Production deployments should
 > implement `AuditCrypto` against Nanokey's Ed25519 endpoints (e.g.
 > `NanokeyAuditCrypto`) rather than using the software backend.
-
-## Status
-
-Pre-release. Part of the Airframe workspace at version `0.5.0-beta`. APIs may
-change before a stable release.
-
-Licensed under MIT.

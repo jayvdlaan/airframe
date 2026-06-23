@@ -145,10 +145,6 @@ Cargo.toml (workspace member using Nanokey):
 airframe_crypt = { path = "../airframe/crates/airframe_crypt", features = ["argon2"] }
 ```
 
-## Status
-
-Airframe module interface implemented (final step).
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

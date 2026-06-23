@@ -65,8 +65,6 @@ let req = spec.build_request("get_item", &params, None).unwrap();
 assert_eq!(req.uri().to_string(), "https://api.example.com/v1/items/123");
 ```
 
-## Status
+## License
 
-Pre-release (`0.5.0-beta`). The public surface is small and may still evolve.
-
-Licensed under MIT.
+Licensed under the MIT License.

@@ -146,10 +146,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 - Docs:
   - `cargo doc -p airframe_winreg --all-features --no-deps`
 
-## Status
-
-APIs implemented (Windows Registry byte cache adapter).
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

@@ -129,10 +129,6 @@ cargo run -p airframe_data --example cache_codec_shim --features airframe_data/c
 # (legacy aliases also work: compress, codec_shim)
 ```
 
-## Status
-
-APIs implemented (repos, caches, layers). No Airframe module interface.
-
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.

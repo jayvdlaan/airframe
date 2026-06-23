@@ -151,9 +151,3 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 `PgPoolOptions` also implements `Default` (`min_connections: 1`,
 `max_connections: 10`, `connect_timeout_secs: 5`). Use `PgPool::run_migrations`
 to run sqlx migrations from a directory path.
-
-## Status
-
-Pre-release (0.5.0-beta). APIs may change before the 1.0 release.
-
-Licensed under MIT.

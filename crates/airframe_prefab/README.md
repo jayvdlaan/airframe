@@ -58,3 +58,7 @@ References
 - HTTP module (client/server): ../../crates/airframe_http/README.md
 - Logging module: ../../crates/airframe_logging/README.md
 - Config module: ../../crates/airframe_config/README.md
+
+## License
+
+Licensed under the MIT License.

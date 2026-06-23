@@ -111,11 +111,6 @@ Notes
 - TTL is enforced on read and via a background janitor task that emits `KvEvent::Expire`.
 - Listing and pagination walk the directory tree and sort keys lexicographically; suitable for local/single-node use.
 
-## Status
-
-- InMemoryKvStore ready for dev use.
-- FilesystemKvStore available behind `kv-fs` feature for local/single-node durability.
-- Airframe module interface implemented.
-
 ## License
-This project is licensed under the repository license; see the top-level LICENSE file.
+
+Licensed under the MIT License.

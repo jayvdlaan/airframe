@@ -102,10 +102,3 @@ stats.record_sent(1024);
 stats.update_rtt(Duration::from_millis(42));
 println!("rtt={:?} loss={:.2}", stats.rtt(), stats.loss_ratio());
 ```
-
-## Status
-
-Pre-release (0.5.0-beta). The primitives are implemented and unit-tested, but the
-API is not yet stable.
-
-Licensed under MIT.

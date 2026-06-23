@@ -64,10 +64,6 @@ airframe_core = { path = "../airframe_core" }
 - Reacts to config file change by updating Logging and publishing LoggingChanged.
 - Stores a KV key demo/hello and shows a Scheduler-driven ticks counter under scheduler/jobs/heartbeat/ticks.
 
-## Status
-
-APIs implemented (runtime and module system).
-
 ## Features
 
 The following optional features enable integrations with sibling Airframe crates when you want them, without imposing dependencies on consumers who only need core types:
@@ -84,4 +80,4 @@ These are primarily used by examples and tests; the core runtime does not requir
 
 ## License
 
-This project is licensed under the repository license; see the top-level LICENSE file.
+Licensed under the MIT License.
